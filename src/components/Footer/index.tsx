@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-function Footer(){
+function Footer(props: any) {
+    console.log("Footer", props);
     return (
-        <div className="Footer">
+        <div className="footer">
             <button> + </button>
-            <button> Edit </button>
+            <button> Add </button>
         </div>
     );
 }

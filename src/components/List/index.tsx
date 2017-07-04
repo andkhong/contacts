@@ -1,25 +1,23 @@
 import * as React from 'react';
+import { connect, Dispatch } from 'react-redux';
+import * as listDispatch from '../../actions/listActions';
 
-function List (props: any) {
-  const { contacts } = props;
+function List ({ contacts, selectPerson }: any) {
   const names = contacts.map((item: any, index: number) => 
-    <li key={index}> {item.firstName} {item.lastName} </li>
+    <li key={index} onClick={() => selectPerson(index)}> {item.firstName} {item.lastName} </li>
   );
   return <div className="list"> {names} </div>;
 }
 
-import { connect, Dispatch } from 'react-redux';
-import * as listDispatch from '../../actions/listActions';
-
 const mapStateToProps = (state: any) => ({
   contacts: state.list.contacts
-})
+});
 
-function mapDispatchToProps(dispatch: Dispatch<listDispatch.SelectContact>) {
+const mapDispatchToProps = (dispatch: Dispatch<listDispatch.SelectContact>) => {
     return {
         selectPerson: (index: number) => dispatch(listDispatch.selectContact(index))
     };
-}
+};
 
 export default connect(
     mapStateToProps,
