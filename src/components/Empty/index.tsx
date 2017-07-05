@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Empty() {
     return (
-        <div> 
+        <div className="empty"> 
             <div className="footer">
                 <Link to="/add"> <button> Add </button> </Link>
             </div>

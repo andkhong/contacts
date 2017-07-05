@@ -43,13 +43,15 @@ class Add extends React.Component<any, any> {
 
     render() {
         return (
-            <div className="Add"> 
-                <input onChange={this.handleChange} name="firstName" placeholder="First" />
-                <input onChange={this.handleChange} name="lastName" placeholder="Last" />
-                <input onChange={this.handleChange} name="mobile" placeholder="Phone" />
-                <input onChange={this.handleChange} name="email" placeholder="Email" />
-                <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" />
-                <input onChange={this.handleChange} name="address" placeholder="Address" />
+            <div className="add"> 
+                <form>
+                    <input onChange={this.handleChange} name="firstName" placeholder="First" />
+                    <input onChange={this.handleChange} name="lastName" placeholder="Last" />
+                    <input onChange={this.handleChange} name="mobile" placeholder="Phone" />
+                    <input onChange={this.handleChange} name="email" placeholder="Email" />
+                    <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" />
+                    <input onChange={this.handleChange} name="address" placeholder="Address" />
+                </form>
                 <div className="footer">
                     <Link to="/"> <button onClick={this.checkState}> Done </button> </Link>
                 </div>

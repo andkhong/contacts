@@ -40,9 +40,9 @@ function Detail({ selected, deletePerson }: DetailProps) {
             <div className="personalDetail"> birthday {bDay || ''}  <hr /> </div>
             <div className="personalDetail"> address {address || ''} </div>
             <div className="footer">
-                <Link to="/add"> <button> + </button> </Link>
+                <Link to="/add"> <button> + </button> </Link> 
                 <Link to="/edit"> <button> Edit </button> </Link>
-                <Link to="/"> <button onClick={() => deletePerson(id)}> Delete </button> </Link>
+                <Link to="/"> <button onClick={() => deletePerson(id)}> Delete </button> </Link> 
             </div>
         </div>
     );

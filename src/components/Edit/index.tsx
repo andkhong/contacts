@@ -41,16 +41,22 @@ class Edit extends React.Component<any, any> {
         const { id, firstName, lastName, mobile, email, bDay, address } = this.state;
         return (
             <div className="edit"> 
-                <input onChange={this.handleChange} name="firstName" placeholder="First" value={firstName} />
-                <input onChange={this.handleChange} name="lastName" placeholder="Last" value={lastName} />
-                <input onChange={this.handleChange} name="mobile" placeholder="Phone" value={mobile} />
-                <input onChange={this.handleChange} name="email" placeholder="Email" value={email} />
-                <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" value={bDay} />
-                <input onChange={this.handleChange} name="address" placeholder="Address" value={address} />
+                <form onSubmit={this.editContact}>
+                    <input onChange={this.handleChange} name="firstName" placeholder="First" value={firstName} />
+                    <input onChange={this.handleChange} name="lastName" placeholder="Last" value={lastName} />
+                    <label> mobile </label> 
+                    <input onChange={this.handleChange} name="mobile" placeholder="Phone" value={mobile} />
+                    <label> email </label> 
+                    <input onChange={this.handleChange} name="email" placeholder="Email" value={email} />
+                    <label> birthday </label> 
+                    <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" value={bDay} />
+                    <label> address </label> 
+                    <input onChange={this.handleChange} name="address" placeholder="Address" value={address} />
+                </form>
                 <div className="footer">
-                    <Link to="/add"> <button> + </button> </Link>
+                    <Link to="/add"> <button> + </button> </Link> 
                     <Link to="/detail"> <button onClick={this.editContact}> Done </button> </Link>
-                    <Link to="/"> <button onClick={() => this.props.deletePerson(id)}> Delete </button> </Link>
+                    <Link to="/"> <button onClick={() => this.props.deletePerson(id)}> Delete </button> </Link> 
                 </div>
             </div>
         );
