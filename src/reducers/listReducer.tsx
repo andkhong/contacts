@@ -1,44 +1,31 @@
-import { 
-    ListAction, 
-    SELECT_CONTACT, 
-    UPDATE_CONTACT,
-    ADD_CONTACT,
-    DELETE_CONTACT
-} from '../actions/listActions';
-
-interface ListState {
-    contacts: object[];
-    selected: null;
-}
-
 import { contacts } from './../data/';
+import { ListAction, SELECT_CONTACT, UPDATE_CONTACT, ADD_CONTACT, DELETE_CONTACT } from '../actions/listActions';
+import { AppState } from './../interfaces/';
 
-function listReducer(state: ListState, action: ListAction): ListState {
+function listReducer(state: AppState, action: ListAction): AppState {
     switch (action.type) {
         case SELECT_CONTACT:
             return Object.assign({}, state, {
                 selected: {...state.contacts[action.id], id: action.id },
             });
         case UPDATE_CONTACT: 
-            let copy = [...state.contacts];
-            let index = action.contact.id;
-            delete action.contact.id;
-            copy[index] = action.contact;
+            let upCopy = [...state.contacts];
+            upCopy[action.contact.id] = action.contact;
             return Object.assign({}, state, {
-                contacts: copy,
+                contacts: upCopy,
                 selected: action.contact
             });
         case ADD_CONTACT:
-            copy = [...state.contacts];
-            copy.push(action.contact);
+            let addCopy = [...state.contacts];
+            addCopy.push(action.contact);
             return Object.assign({}, state, {
-                contacts: copy,
+                contacts: addCopy,
                 selected: null
             });
         case DELETE_CONTACT:
-            copy = state.contacts.filter((item, index) => index !== action.id);
+            let delCopy = state.contacts.filter((item, index) => index !== action.id);
             return Object.assign({}, state, {
-                contacts: copy,
+                contacts: delCopy,
                 selected: null
             });
         default:
