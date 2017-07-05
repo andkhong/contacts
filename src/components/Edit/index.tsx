@@ -40,23 +40,33 @@ class Edit extends React.Component<any, any> {
     render() {
         const { id, firstName, lastName, mobile, email, bDay, address } = this.state;
         return (
-            <div className="edit"> 
-                <form onSubmit={this.editContact}>
-                    <input onChange={this.handleChange} name="firstName" placeholder="First" value={firstName} />
-                    <input onChange={this.handleChange} name="lastName" placeholder="Last" value={lastName} />
-                    <label> mobile </label> 
-                    <input onChange={this.handleChange} name="mobile" placeholder="Phone" value={mobile} />
-                    <label> email </label> 
-                    <input onChange={this.handleChange} name="email" placeholder="Email" value={email} />
-                    <label> birthday </label> 
-                    <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" value={bDay} />
-                    <label> address </label> 
-                    <input onChange={this.handleChange} name="address" placeholder="Address" value={address} />
-                </form>
+            <div className="container">
+                <div className="edit">
+                    <div className="personalName"> 
+                        <input onChange={this.handleChange} name="firstName" placeholder="First" value={firstName} />
+                        <input onChange={this.handleChange} name="lastName" placeholder="Last" value={lastName} />
+                    </div>
+                    <div>
+                        mobile: <input onChange={this.handleChange} name="mobile" placeholder="Phone" value={mobile} />
+                    </div>
+                    <div>
+                        email: <input onChange={this.handleChange} name="email" placeholder="Email" value={email} />
+                    </div>
+                    <div>
+                        birthday: <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" value={bDay} />
+                    </div>
+                    <div>
+                        address: <input onChange={this.handleChange} name="address" placeholder="Address" value={address} />
+                    </div>
+                </div>
                 <div className="footer">
-                    <Link to="/add"> <button> + </button> </Link> 
-                    <Link to="/detail"> <button onClick={this.editContact}> Done </button> </Link>
-                    <Link to="/"> <button onClick={() => this.props.deletePerson(id)}> Delete </button> </Link> 
+                    <div className="addBtn"> <Link to="/add"> <button> + </button> </Link> </div>
+                    <div className="edtBtn"> 
+                        <Link to="/detail"> <button onClick={this.editContact}> Done </button> </Link>
+                    </div>
+                    <div className="dltBtn"> 
+                        <Link to="/"> <button onClick={() => this.props.deletePerson(id)}> Delete </button> </Link>
+                    </div> 
                 </div>
             </div>
         );

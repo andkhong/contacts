@@ -33,16 +33,18 @@ export default connect(
 function Detail({ selected, deletePerson }: DetailProps) {
     const { id, firstName, lastName, email, bDay, mobile, address } = selected;
     return (
-        <div className="detail"> 
-            <div className="personalName"> {firstName || ''} {lastName || ''} </div> 
-            <div className="personalDetail"> phone {mobile || ''} <hr /> </div>
-            <div className="personalDetail"> email {email || ''}  <hr /> </div>
-            <div className="personalDetail"> birthday {bDay || ''}  <hr /> </div>
-            <div className="personalDetail"> address {address || ''} </div>
+        <div className="container"> 
+            <div className="detail">
+                <div className="personalName"> {firstName || ''} {lastName || ''} </div> 
+                <div className="personalDetail"> phone {mobile || ''} <hr /> </div>
+                <div className="personalDetail"> email {email || ''}  <hr /> </div>
+                <div className="personalDetail"> birthday {bDay || ''}  <hr /> </div>
+                <div className="personalDetail"> address {address || ''} </div>
+            </div>
             <div className="footer">
-                <Link to="/add"> <button> + </button> </Link> 
-                <Link to="/edit"> <button> Edit </button> </Link>
-                <Link to="/"> <button onClick={() => deletePerson(id)}> Delete </button> </Link> 
+                <div className="addBtn"> <Link to="/add"> <button> + </button> </Link> </div>
+                <div className="edtBtn"> <Link to="/edit"> <button> Edit </button> </Link> </div>
+                <div className="dltBtn"> <Link to="/"> <button onClick={() => deletePerson(id)}> Delete </button> </Link> </div>
             </div>
         </div>
     );

@@ -43,17 +43,28 @@ class Add extends React.Component<any, any> {
 
     render() {
         return (
-            <div className="add"> 
-                <form>
-                    <input onChange={this.handleChange} name="firstName" placeholder="First" />
-                    <input onChange={this.handleChange} name="lastName" placeholder="Last" />
-                    <input onChange={this.handleChange} name="mobile" placeholder="Phone" />
-                    <input onChange={this.handleChange} name="email" placeholder="Email" />
-                    <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" />
-                    <input onChange={this.handleChange} name="address" placeholder="Address" />
-                </form>
+            <div className="container"> 
+                <div className="add">
+                    <div className="personalName"> 
+                        <input onChange={this.handleChange} name="firstName" placeholder="First" /> 
+                        <input onChange={this.handleChange} name="lastName" placeholder="Last" />
+                    </div>
+                    <div> 
+                        mobile: <input onChange={this.handleChange} name="mobile" placeholder="Phone" />
+                    </div>
+                    <div> 
+                        home: <input onChange={this.handleChange} name="email" placeholder="Email" />
+                    </div>
+                    <div> 
+                        birthday: <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" />
+                    </div>
+                    <div> 
+                        address <input onChange={this.handleChange} name="address" placeholder="Address" />
+                    </div>
+                </div>
                 <div className="footer">
-                    <Link to="/"> <button onClick={this.checkState}> Done </button> </Link>
+                    <div className="addBtn"> <Link to="/add"> <button> + </button> </Link> </div>
+                    <div className="dltBtn"> <Link to="/"> <button onClick={this.checkState}> Done </button> </Link> </div>
                 </div>
             </div>
         );
