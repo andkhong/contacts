@@ -2,6 +2,24 @@ import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as listDispatch from '../../actions/listActions';
+import { SelectedProps } from './../../interfaces/';
+
+interface EditState {
+    list: { selected: SelectedProps; };
+}
+
+function mapStateToProps (state: EditState) {
+    return {
+        selected: state.list.selected
+    };
+}
+
+const mapDispatchToProps = (dispatch: Dispatch<listDispatch.UpdateContact>) => {
+    return {
+        updateContact: (list: SelectedProps) => dispatch(listDispatch.updateContact(list)),
+        deletePerson: (index: number) => dispatch(listDispatch.deleteContact(index))
+    };
+};
 
 class Edit extends React.Component<any, any> {
     constructor(props: any) {
@@ -11,7 +29,7 @@ class Edit extends React.Component<any, any> {
         this.editContact = this.editContact.bind(this);
     }
 
-    handleChange(e: any) {
+    handleChange(e: any): void {
         this.setState({ [e.target.name]: e.target.value });
     }
 
@@ -20,7 +38,7 @@ class Edit extends React.Component<any, any> {
     }
 
     render() {
-        const { firstName, lastName, mobile, email, bDay, address } = this.state;
+        const { id, firstName, lastName, mobile, email, bDay, address } = this.state;
         return (
             <div className="edit"> 
                 <input onChange={this.handleChange} name="firstName" placeholder="First" value={firstName} />
@@ -32,23 +50,12 @@ class Edit extends React.Component<any, any> {
                 <div className="footer">
                     <Link to="/add"> <button> + </button> </Link>
                     <Link to="/detail"> <button onClick={this.editContact}> Done </button> </Link>
+                    <Link to="/"> <button onClick={() => this.props.deletePerson(id)}> Delete </button> </Link>
                 </div>
             </div>
         );
     }
 }
-
-function mapStateToProps (state: any) {
-    return {
-        selected: state.list.selected
-    };
-}
-
-const mapDispatchToProps = (dispatch: Dispatch<listDispatch.UpdateContact>) => {
-    return {
-        updateContact: (list: any) => dispatch(listDispatch.updateContact(list))
-    };
-};
 
 export default connect(
     mapStateToProps,

@@ -1,7 +1,13 @@
-import { ListAction, SELECT_CONTACT, UPDATE_CONTACT } from '../actions/listActions';
+import { 
+    ListAction, 
+    SELECT_CONTACT, 
+    UPDATE_CONTACT,
+    ADD_CONTACT,
+    DELETE_CONTACT
+} from '../actions/listActions';
 
 interface ListState {
-    contacts: any[];
+    contacts: object[];
     selected: null;
 }
 
@@ -21,6 +27,19 @@ function listReducer(state: ListState, action: ListAction): ListState {
             return Object.assign({}, state, {
                 contacts: copy,
                 selected: action.contact
+            });
+        case ADD_CONTACT:
+            copy = [...state.contacts];
+            copy.push(action.contact);
+            return Object.assign({}, state, {
+                contacts: copy,
+                selected: null
+            });
+        case DELETE_CONTACT:
+            copy = state.contacts.filter((item, index) => index !== action.id);
+            return Object.assign({}, state, {
+                contacts: copy,
+                selected: null
             });
         default:
             return { contacts: contacts, selected: null };

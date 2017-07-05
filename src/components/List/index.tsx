@@ -1,21 +1,12 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
-import * as listDispatch from '../../actions/listActions';
 import { Link } from 'react-router-dom';
+import * as listDispatch from '../../actions/listActions';
+import { SelectedProps } from './../../interfaces/';
 
 interface ListProps {
   contacts: any[];
   selectPerson: (index: number) => void;
-}
-
-function List ({ contacts, selectPerson }: ListProps) {
-  const names = contacts.sort((a, b) => a.firstName > b.firstName ? 1 : -1)
-    .map((item: any, index: number) => (
-      <li key={index} onClick={() => selectPerson(index)}> 
-        <Link to="/detail">{item.firstName} {item.lastName}</Link>
-      </li>
-  ));
-  return <div className="list"> {names} </div>;
 }
 
 const mapStateToProps = (state: any) => ({
@@ -32,3 +23,13 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(List);
+
+function List ({ contacts, selectPerson }: ListProps) {
+  const names = contacts.sort((a, b) => a.firstName > b.firstName ? 1 : -1)
+    .map((item: SelectedProps, index: number) => (
+      <li key={index} onClick={() => selectPerson(index)}> 
+        <Link to="/detail">{item.firstName} {item.lastName}</Link>
+      </li>
+  ));
+  return <div className="list"> {names} </div>;
+}
