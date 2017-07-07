@@ -37,6 +37,7 @@ class Add extends React.Component<any, any> {
         for (let key in this.state) {
             if (this.state[key] !== '') {
                 addPerson(this.state);
+                break;
             }
         }
     }

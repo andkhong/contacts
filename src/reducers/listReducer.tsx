@@ -6,20 +6,27 @@ function listReducer(state: AppState, action: ListAction): AppState {
     switch (action.type) {
         case SELECT_CONTACT:
             return Object.assign({}, state, {
-                selected: {...state.contacts[action.id], id: action.id },
+                selected: {
+                    ...state.contacts[action.id], 
+                    id: action.id 
+                },
             });
         case UPDATE_CONTACT: 
-            let upCopy = [...state.contacts];
-            upCopy[action.contact.id] = action.contact;
+            let index = action.contact.id;
             return Object.assign({}, state, {
-                contacts: upCopy,
+                contacts: [
+                    ...state.contacts.slice(0, index), 
+                    action.contact, 
+                    ...state.contacts.slice(index+1)
+                ],
                 selected: action.contact
             });
         case ADD_CONTACT:
-            let addCopy = [...state.contacts];
-            addCopy.push(action.contact);
             return Object.assign({}, state, {
-                contacts: addCopy,
+                contacts: [
+                    ...state.contacts, 
+                    action.contact
+                ],
                 selected: null
             });
         case DELETE_CONTACT:
