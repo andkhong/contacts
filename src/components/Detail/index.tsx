@@ -44,7 +44,9 @@ function Detail({ selected, deletePerson }: DetailProps) {
             <div className="footer">
                 <div className="addBtn"> <Link to="/add"> <button> + </button> </Link> </div>
                 <div className="edtBtn"> <Link to="/edit"> <button> Edit </button> </Link> </div>
-                <div className="dltBtn"> <Link to="/"> <button onClick={() => deletePerson(id)}> Delete </button> </Link> </div>
+                <div className="dltBtn"> 
+                    <Link to="/"> <button onClick={() => deletePerson(id)}> Delete </button> </Link> 
+                </div>
             </div>
         </div>
     );

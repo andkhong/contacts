@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import listReducer from './listReducer';
+import { listReducer } from './listReducer';
 
 const combinedReducers = combineReducers({
     list: listReducer

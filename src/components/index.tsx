@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import List from './List/';
-import Search from './Search/';
+// import Search from './Search/';
 import Empty from './Empty';
 import Detail from './Detail/';
 import Edit from './Edit/';
@@ -12,7 +12,6 @@ function App() {
     return (
       <div className="App">
         <div className="left"> 
-          <Search />
           <List />
         </div>
         <Switch>
