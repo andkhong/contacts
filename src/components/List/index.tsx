@@ -28,8 +28,15 @@ function List ({ contacts, selectPerson }: ListProps) {
   const names = contacts.sort((a, b) => a.firstName > b.firstName ? 1 : -1)
     .map((item: SelectedProps, index: number) => (
       <li key={index} onClick={() => selectPerson(index)}> 
-        <Link to="/detail">{item.firstName} {item.lastName}</Link>
+        <Link style={linkStyle} to="/detail">{item.firstName} {item.lastName}</Link>
       </li>
   ));
   return <div className="list"> {names} </div>;
 }
+
+// Styling Links are awkward, Inline style is recommended in this case
+const linkStyle = {
+  textDecoration: 'none',
+  color: 'black',
+  cursor: 'default'
+};
