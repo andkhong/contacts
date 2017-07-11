@@ -12,10 +12,10 @@ li {
 }
 
 .left {
-  background-color: #DCDDE2;
+  background-color: #F1F1F1;
   position: relative;
   height: 95vh;
-  width: 33vh;
+  /*width: 33%;*/
 }
 
 .list {
@@ -66,22 +66,19 @@ li {
 /*Footer Section*/
 
 .footer {
-  margin: auto;
   display: flex;
-  position: absolute;
-  bottom: 10%;
+  position: fixed;
+  width: 66%;
+  bottom: 7%;
 }
 
 .addBtn {
-  position: relative;
 }
 
 .edtBtn {
-  position: absolute;
-  margin-left: 600%;
+  margin-left: 75%;
 }
 
 .dltBtn {
-  position: relative;
-  margin-left: 630%;
+  margin-left: 1%;
 }
