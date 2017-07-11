@@ -36,7 +36,7 @@ function Detail({ selected, deletePerson }: DetailProps) {
         <div className="container"> 
             <div className="detail">
                 <div className="personalName"> {firstName || ''} {lastName || ''} </div> 
-                <div className="personalDetail"> phone {mobile || ''} <hr /> </div>
+                <div className="personalDetail"> mobile {mobile || ''} <hr /> </div>
                 <div className="personalDetail"> email {email || ''}  <hr /> </div>
                 <div className="personalDetail"> birthday {bDay || ''}  <hr /> </div>
                 <div className="personalDetail"> address {address || ''} </div>

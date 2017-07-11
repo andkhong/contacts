@@ -11,9 +11,7 @@ import Add from './Add/';
 function App() {
     return (
       <div className="App">
-        <div className="left"> 
-          <List />
-        </div>
+        <div className="left"> <List /> </div>
         <Switch>
           <Route exact={true} path="/" component={Empty} />
           <Route path="/detail" component={Detail as any} />

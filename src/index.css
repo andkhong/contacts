@@ -1,11 +1,11 @@
 .App {
-  text-align: center;
   display: flex;
-  position: relative;
-  height: 95vh;
+  position: absolute;
+  height: 100vh;
   width: 100%;
-  padding: 0px;
 }
+
+/*Left Side*/
 
 li {
   list-style: none;
@@ -15,12 +15,14 @@ li {
   background-color: #DCDDE2;
   position: relative;
   height: 95vh;
-  width: 25%;
+  width: 33vh;
 }
 
 .list {
-  padding: 10px;
+  padding: 30px;
 }
+
+/*Main Section*/
 
 .container {
   margin: auto;
@@ -30,34 +32,42 @@ li {
 
 .personalName {
   position: fixed;
-  padding-top: 15px;
+  margin-left: auto;
+  padding-top: 55px;
   top: 0;
-  width: 415px;
-  height: 100px;
 }
 
-.edit {
-
+.editName {
+  position: fixed;
+  margin-left: auto;
+  padding-top: 55px;
+  top: 0;
 }
+
+.editDetail {
+  margin-left: auto;
+  top: 0;
+}
+
+/*Footer Section*/
 
 .footer {
   margin: auto;
   display: flex;
   position: absolute;
-  bottom: 5%;
+  bottom: 10%;
 }
 
 .addBtn {
-  position: absolute;
-  right: 2%;
+  position: relative;
 }
 
 .edtBtn {
   position: absolute;
-  left: 350px;
+  margin-left: 600%;
 }
 
 .dltBtn {
-  position: absolute;
-  left: 400px;
+  position: relative;
+  margin-left: 630%;
 }
