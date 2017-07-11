@@ -27,7 +27,6 @@ li {
 .container {
   margin: auto;
   width: 100vh;
-  overflow: auto;
 }
 
 .personalName {
@@ -35,6 +34,21 @@ li {
   margin-left: auto;
   padding-top: 55px;
   top: 0;
+}
+
+.personalDetail {
+  margin-left: auto;
+}
+
+.addName {
+  position: fixed;
+  margin-left: auto;
+  padding-top: 55px;
+  top: 0;
+}
+
+.addDetail {
+  margin-left: auto;
 }
 
 .editName {
@@ -46,7 +60,6 @@ li {
 
 .editDetail {
   margin-left: auto;
-  top: 0;
 }
 
 /*Footer Section*/
