@@ -10,7 +10,7 @@ interface ListProps {
 }
 
 interface ListState {
-  filter: string;
+  search: string;
 }
 
 function mapStateToProps (state: { list: ListProps }) {
@@ -28,17 +28,17 @@ const mapDispatchToProps = (dispatch: Dispatch<listDispatch.SelectContact>) => {
 class List extends React.Component<any, ListState> {
   constructor(props: any) {
     super(props);
-    this.state = { filter: '' };
+    this.state = { search: '' };
   }
 
   buildList() {
     const { contacts, selectPerson } = this.props;
-    const { filter } = this.state;
+    const { search } = this.state;
     return contacts
-        .filter((item: SelectedProps) => (item.firstName + item.lastName).toLowerCase().includes(filter.toLowerCase()))
-        .sort((a: SelectedProps, b: SelectedProps) => a.firstName > b.firstName ? 1 : -1)
-        .map((item: SelectedProps, index: number) => (
-          <li key={index} onClick={() => selectPerson(index)}> 
+        .filter((item: SelectedProps) => (item.firstName + item.lastName).toLowerCase().includes(search.toLowerCase()))
+        .sort((a: SelectedProps, b: SelectedProps) => a.firstName.localeCompare(b.firstName))
+        .map((item: SelectedProps) => (
+          <li key={item.id} onClick={() => selectPerson(item.id)}> 
             <Link style={linkStyle} to="/detail">{item.firstName} {item.lastName}</Link>
           </li>
         ));
@@ -50,8 +50,8 @@ class List extends React.Component<any, ListState> {
         <input
           type="search"
           placeholder="Search..."
-          value={this.state.filter}
-          onChange={(e) => this.setState({ filter: e.target.value })}
+          value={this.state.search}
+          onChange={(e) => this.setState({ search: e.target.value })}
         />
         {this.buildList()}
       </div>

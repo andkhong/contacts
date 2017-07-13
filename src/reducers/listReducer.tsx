@@ -9,7 +9,7 @@ export function listReducer(state: AppState, action: ListAction): AppState {
                 selected: {
                     ...state.contacts[action.id], 
                     id: action.id 
-                },
+                }
             });
         case UPDATE_CONTACT: 
             return Object.assign({}, state, {
