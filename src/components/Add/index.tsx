@@ -68,7 +68,7 @@ class Add extends React.Component<any, AddState> {
                 </div>
                 <div className="footer">
                     <div className="addBtn"> <Link to="/add"> <button> + </button> </Link> </div>
-                    <div className="dltBtn"> 
+                    <div className="edtBtn"> 
                         <Link to="/"> <button onClick={this.checkState}> Done </button> </Link> 
                     </div>
                 </div>

@@ -14,12 +14,10 @@ App was built with Create React App and Typescript configuration.
 3. run npm start
 4. open http://localhost:3000/
 
-## Todo
-1. Complete Search Components
-2. Add Contact highlight on click
-3. Style closer to Contacts application
-4. Modularize Footer component
-5. Modularize interfaces
+## Todo / Bugs
+1. Add Contact highlight on click
+2. Style closer to Contacts application
+3. Modularize interfaces
 
 ## Developer Notes
 If any changes are made to code, app will reload on differnent URL. There will be an error due to certain components automatically rendering on certain elements in store. URL must be reset to base URL, http://localhost:3000/ in order to avoid issue

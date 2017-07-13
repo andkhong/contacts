@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+// import Search from './Search/';
 import List from './List/';
-import Search from './Search/';
 import Empty from './Empty';
 import Detail from './Detail/';
 import Edit from './Edit/';
@@ -11,7 +11,7 @@ import Add from './Add/';
 function App() {
     return (
       <div className="App">
-        <div className="left"> <Search /> <List /> </div>
+        <div className="left"> <List /> </div>
         <Switch>
           <Route exact={true} path="/" component={Empty} />
           <Route path="/detail" component={Detail as any} />
