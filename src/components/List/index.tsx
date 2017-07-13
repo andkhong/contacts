@@ -9,6 +9,10 @@ interface ListProps {
   selectPerson: (index: number) => void;
 }
 
+interface ListState {
+  filter: string;
+}
+
 function mapStateToProps (state: { list: ListProps }) {
   return {
     contacts: state.list.contacts
@@ -21,29 +25,28 @@ const mapDispatchToProps = (dispatch: Dispatch<listDispatch.SelectContact>) => {
   };
 };
 
-class List extends React.Component<any, any> {
+class List extends React.Component<any, ListState> {
   constructor(props: any) {
     super(props);
     this.state = { filter: '' };
   }
 
-  buildList(){
+  buildList() {
     const { contacts, selectPerson } = this.props;
     const { filter } = this.state;
-    const names = contacts
-        .filter((check: any) => (check.firstName + check.lastName).includes(filter))
+    return contacts
+        .filter((item: SelectedProps) => (item.firstName + item.lastName).toLowerCase().includes(filter.toLowerCase()))
         .sort((a: SelectedProps, b: SelectedProps) => a.firstName > b.firstName ? 1 : -1)
         .map((item: SelectedProps, index: number) => (
           <li key={index} onClick={() => selectPerson(index)}> 
             <Link style={linkStyle} to="/detail">{item.firstName} {item.lastName}</Link>
           </li>
         ));
-    return names;
   }
 
   render() {
     return (
-      <div> 
+      <div className="list"> 
         <input
           type="search"
           placeholder="Search..."

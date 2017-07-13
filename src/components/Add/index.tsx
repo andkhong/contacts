@@ -60,10 +60,14 @@ class Add extends React.Component<any, AddState> {
                         <input onChange={this.handleChange} name="lastName" placeholder="Last" />
                     </div>
                     <div className="addDetail">
-                         mobile: <input onChange={this.handleChange} name="mobile" placeholder="Phone" /> <hr /> 
-                         home: <input onChange={this.handleChange} name="email" placeholder="Email" /> <hr /> 
-                         birthday: <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" /> <hr /> 
-                         address <input onChange={this.handleChange} name="address" placeholder="Address" /> <hr /> 
+                         mobile: <input onChange={this.handleChange} name="mobile" placeholder="Phone" /> 
+                        <hr /> 
+                         home: <input onChange={this.handleChange} name="email" placeholder="Email" /> 
+                        <hr /> 
+                         birthday: <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" /> 
+                        <hr /> 
+                         address <input onChange={this.handleChange} name="address" placeholder="Address" /> 
+                        <hr /> 
                     </div>
                 </div>
                 <div className="footer">
