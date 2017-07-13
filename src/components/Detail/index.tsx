@@ -25,11 +25,6 @@ const mapDispatchToProps = (dispatch: Dispatch<listDispatch.DeleteContact>) => {
     };
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Detail);
-
 function Detail({ selected, deletePerson }: DetailProps) {
     const { id, firstName, lastName, email, bDay, mobile, address } = selected;
     return (
@@ -51,3 +46,8 @@ function Detail({ selected, deletePerson }: DetailProps) {
         </div>
     );
 }
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Detail);

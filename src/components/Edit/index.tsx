@@ -47,10 +47,10 @@ class Edit extends React.Component<any, any> {
                         <input onChange={this.handleChange} name="lastName" placeholder="Last" value={lastName} />
                     </div>
                     <div className="editDetail">
-                        <div> mobile: <input onChange={this.handleChange} name="mobile" placeholder="Phone" value={mobile} /> <hr /> </div>
-                        <div> email: <input onChange={this.handleChange} name="email" placeholder="Email" value={email} /> <hr /> </div>
-                        <div> birthday: <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" value={bDay} /> <hr /> </div>
-                        <div> address: <input onChange={this.handleChange} name="address" placeholder="Address" value={address} /> </div>
+                        mobile: <input onChange={this.handleChange} name="mobile" placeholder="Phone" value={mobile} /> <hr />
+                        email: <input onChange={this.handleChange} name="email" placeholder="Email" value={email} /> <hr />
+                        birthday: <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" value={bDay} /> <hr />
+                        address: <input onChange={this.handleChange} name="address" placeholder="Address" value={address} />
                     </div>
                 </div>
                 <div className="footer">

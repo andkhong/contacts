@@ -5,24 +5,21 @@ import * as listDispatch from '../../actions/listActions';
 import { SelectedProps } from './../../interfaces/';
 
 interface ListProps {
-  contacts: any[];
+  contacts: SelectedProps[];
   selectPerson: (index: number) => void;
 }
 
-const mapStateToProps = (state: any) => ({
-  contacts: state.list.contacts
-});
+function mapStateToProps (state: { list: ListProps }) {
+  return {
+    contacts: state.list.contacts
+  };
+}
 
 const mapDispatchToProps = (dispatch: Dispatch<listDispatch.SelectContact>) => {
     return {
         selectPerson: (index: number) => dispatch(listDispatch.selectContact(index))
     };
 };
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(List);
 
 function List ({ contacts, selectPerson }: ListProps) {
   const names = contacts.sort((a, b) => a.firstName > b.firstName ? 1 : -1)
@@ -40,3 +37,8 @@ const linkStyle = {
   color: 'black',
   cursor: 'default'
 };
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(List);

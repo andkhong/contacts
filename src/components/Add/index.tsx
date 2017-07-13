@@ -3,17 +3,26 @@ import { connect, Dispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as listDispatch from '../../actions/listActions';
 
+interface AddState {
+    firstName: string;
+    lastName: string;
+    mobile: string;
+    email: string;
+    bDay: string;
+    address: string;
+}
+
 function mapStateToProps () {
     return {};
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<listDispatch.AddContact>) => {
+function mapDispatchToProps(dispatch: Dispatch<listDispatch.AddContact>) {
     return {
         addPerson: (index: number) => dispatch(listDispatch.addContact(index))
     };
-};
+}
 
-class Add extends React.Component<any, any> {
+class Add extends React.Component<any, AddState> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -51,10 +60,10 @@ class Add extends React.Component<any, any> {
                         <input onChange={this.handleChange} name="lastName" placeholder="Last" />
                     </div>
                     <div className="addDetail">
-                        <div> mobile: <input onChange={this.handleChange} name="mobile" placeholder="Phone" /> <hr /> </div>
-                        <div> home: <input onChange={this.handleChange} name="email" placeholder="Email" /> <hr /> </div>
-                        <div> birthday: <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" /> <hr /> </div>
-                        <div> address <input onChange={this.handleChange} name="address" placeholder="Address" /> <hr /> </div>
+                         mobile: <input onChange={this.handleChange} name="mobile" placeholder="Phone" /> <hr /> 
+                         home: <input onChange={this.handleChange} name="email" placeholder="Email" /> <hr /> 
+                         birthday: <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" /> <hr /> 
+                         address <input onChange={this.handleChange} name="address" placeholder="Address" /> <hr /> 
                     </div>
                 </div>
                 <div className="footer">

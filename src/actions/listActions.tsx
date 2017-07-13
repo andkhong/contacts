@@ -48,7 +48,7 @@ export function updateContact(update: SelectedProps): UpdateContact {
     };
 }
 
-export function addContact(contact: any) {
+export function addContact(contact: {}) {
     return {
         type: ADD_CONTACT,
         contact
