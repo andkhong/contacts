@@ -13,20 +13,20 @@ export function listReducer(state: AppState, action: ListAction): AppState {
             });
         case UPDATE_CONTACT: 
             return Object.assign({}, state, {
+                selected: action.contact,
                 contacts: [
                     ...state.contacts.slice(0, action.contact.id), 
                     action.contact,
                     ...state.contacts.slice(action.contact.id + 1)
-                ],
-                selected: action.contact
+                ]
             });
         case ADD_CONTACT:
             return Object.assign({}, state, {
+                selected: null,
                 contacts: [
                     ...state.contacts, 
                     action.contact
-                ],
-                selected: null
+                ]
             });
         case DELETE_CONTACT:
             let delCopy = state.contacts.filter((item, index) => index !== action.id);

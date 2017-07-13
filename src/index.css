@@ -1,63 +1,84 @@
 .App {
-  text-align: center;
   display: flex;
-  position: relative;
-  height: 95vh;
+  position: absolute;
+  height: 100vh;
   width: 100%;
-  padding: 0px;
 }
+
+/*Left Side*/
 
 li {
   list-style: none;
 }
 
 .left {
-  background-color: #DCDDE2;
+  background-color: #F1F1F1;
   position: relative;
   height: 95vh;
-  width: 25%;
+  /*width: 33%;*/
 }
 
 .list {
-  padding: 10px;
+  padding: 30px;
+  cursor: default;
 }
+
+/*Main Section*/
 
 .container {
   margin: auto;
   width: 100vh;
-  overflow: auto;
 }
 
 .personalName {
   position: fixed;
-  padding-top: 15px;
+  margin-left: auto;
+  padding-top: 55px;
   top: 0;
-  width: 415px;
-  height: 100px;
 }
 
-.edit {
-
+.personalDetail {
+  margin-left: auto;
 }
+
+.addName {
+  position: fixed;
+  margin-left: auto;
+  padding-top: 55px;
+  top: 0;
+}
+
+.addDetail {
+  margin-left: auto;
+}
+
+.editName {
+  position: fixed;
+  margin-left: auto;
+  padding-top: 55px;
+  top: 0;
+}
+
+.editDetail {
+  margin-left: auto;
+}
+
+/*Footer Section*/
 
 .footer {
-  margin: auto;
   display: flex;
-  position: absolute;
-  bottom: 5%;
+  position: fixed;
+  width: 70%;
+  bottom: 7%;
 }
 
 .addBtn {
-  position: absolute;
-  right: 2%;
 }
 
 .edtBtn {
-  position: absolute;
-  left: 350px;
+  margin-left: 75%;
 }
 
 .dltBtn {
-  position: absolute;
-  left: 400px;
+  margin-left: 1%;
 }
