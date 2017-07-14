@@ -4,21 +4,20 @@ import { Link } from 'react-router-dom';
 import * as listDispatch from '../../actions/listActions';
 import { Contact } from './../../data/';
 
-interface EditState {
+type EditState = Contact;
+
+interface State {
     list: { 
         selected: Contact,
         id: number
-     };
-}
-
-interface Change {
-    target: {
-        name: string,
-        value: string
     };
 }
 
-function mapStateToProps (state: EditState) {
+interface Change {
+    target: any;
+}
+
+function mapStateToProps (state: State) {
     return {
         selected: state.list.selected,
         id: state.list.id
@@ -32,7 +31,7 @@ const mapDispatchToProps = (dispatch: Dispatch<listDispatch.UpdateContact>) => {
     };
 };
 
-class Edit extends React.Component<any, any> {
+class Edit extends React.Component<any, EditState> {
     constructor(props: any) {
         super(props);
         this.state = props.selected;
@@ -58,10 +57,15 @@ class Edit extends React.Component<any, any> {
                         <input onChange={this.handleChange} name="lastName" placeholder="Last" value={lastName} />
                     </div>
                     <div className="editDetail">
-                        mobile: <input onChange={this.handleChange} name="mobile" placeholder="Phone" value={mobile} /> <hr />
-                        email: <input onChange={this.handleChange} name="email" placeholder="Email" value={email} /> <hr />
-                        birthday: <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" value={bDay} /> <hr />
-                        address: <input onChange={this.handleChange} name="address" placeholder="Address" value={address} />
+                        mobile: <input onChange={this.handleChange} name="mobile" placeholder="Phone" value={mobile} /> 
+                        <hr />
+                        email: <input onChange={this.handleChange} name="email" placeholder="Email" value={email} /> 
+                        <hr />
+                        birthday: 
+                        <input onChange={this.handleChange} name="bDay" placeholder="month/day/year" value={bDay} /> 
+                        <hr />
+                        address: 
+                        <input onChange={this.handleChange} name="address" placeholder="Address" value={address} />
                     </div>
                 </div>
                 <div className="footer">

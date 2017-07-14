@@ -5,7 +5,7 @@ import * as listDispatch from '../../actions/listActions';
 import { Contact } from './../../data/';
 
 interface ListProps {
-  contacts: Contact [];
+  contacts: Contact[];
   selectPerson: (index: number) => void;
 }
 
@@ -35,11 +35,11 @@ class List extends React.Component<any, ListState> {
     const { contacts, selectPerson } = this.props;
     const { search } = this.state;
     return contacts
-        .filter((item: Contact, index: number) => ((item.firstName + item.lastName)
+        .filter((contact: Contact, index: number) => ((contact.firstName + contact.lastName)
         .toLowerCase().includes(search.toLowerCase())))
         .sort((a: Contact, b: Contact) => a.firstName.localeCompare(b.firstName))
-        .map((contact: Contact) => (
-          <li onClick={() => selectPerson(contacts.indexOf(contact))}> 
+        .map((contact: Contact, index: number) => (
+          <li key={index} onClick={() => selectPerson(contacts.indexOf(contact))}> 
             <Link style={linkStyle} to="/detail">{contact.firstName} {contact.lastName}</Link>
           </li>
         ));

@@ -2,11 +2,11 @@ import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as listDispatch from '../../actions/listActions';
-// import { Contact } from './../../data/';
+import { Contact } from './../../data/';
 
-// interface AddProps {
-//     addPerson: (list: Contact) => Object;
-// }
+interface AddProps {
+    addPerson: (list: Contact) => Object;
+}
 
 interface AddState {
     firstName: string;
@@ -17,11 +17,15 @@ interface AddState {
     address: string;
 }
 
-function mapStateToProps () {
+interface Change {
+    target: any;
+}
+
+function mapStateToProps() {
     return {};
 }
 
-function mapDispatchToProps(dispatch: Dispatch<listDispatch.AddContact>) {
+function mapDispatchToProps(dispatch: Dispatch<listDispatch.AddContact>): AddProps {
     return {
         addPerson: (contact: AddState) => dispatch(listDispatch.addContact(contact))
     };
@@ -42,11 +46,11 @@ class Add extends React.Component<any, AddState> {
         this.checkState = this.checkState.bind(this);
     }
 
-    handleChange(e: any) {
+    handleChange(e: Change): void {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    checkState() {
+    checkState(): void {
         const { addPerson } = this.props;
         if (this.state.firstName || this.state.lastName) {
             addPerson(this.state);
