@@ -1,6 +1,6 @@
 import { contacts } from './../data/';
 import { ListAction, SELECT_CONTACT, UPDATE_CONTACT, ADD_CONTACT, DELETE_CONTACT } from '../actions/listActions';
-import { AppState } from './../interfaces/';
+import { AppState, SelectedProps } from './../interfaces/';
 
 export function listReducer(state: AppState, action: ListAction): AppState {
     switch (action.type) {
@@ -29,7 +29,9 @@ export function listReducer(state: AppState, action: ListAction): AppState {
                 ]
             });
         case DELETE_CONTACT:
-            let delCopy = state.contacts.filter((item, index) => index !== action.id);
+            let delCopy = [...state.contacts]
+                .filter((item, index) => index !== action.id)
+                .map((item: SelectedProps, index) => Object.assign({}, item, { id: index }));
             return Object.assign({}, state, {
                 contacts: delCopy,
                 selected: null
