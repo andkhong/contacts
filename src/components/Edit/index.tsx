@@ -29,7 +29,7 @@ class Edit extends React.Component<any, any> {
         this.editContact = this.editContact.bind(this);
     }
 
-    handleChange(e: any): void {
+    handleChange(e: { target: { name: string, value: string }}): void {
         this.setState({ [e.target.name]: e.target.value });
     }
 

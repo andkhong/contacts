@@ -71,13 +71,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(List);
-
-// function List ({ children, contacts, selectPerson }: any) {
-//   const names = contacts.sort((a: any, b: any) => a.firstName > b.firstName ? 1 : -1)
-//     .map((item: SelectedProps, index: number) => (
-//       <li key={index} onClick={() => selectPerson(index)}> 
-//         <Link style={linkStyle} to="/detail">{item.firstName} {item.lastName}</Link>
-//       </li>
-//   ));
-//   return <div className="list"> {names} </div>;
-// }

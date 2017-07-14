@@ -13,7 +13,7 @@ interface AddState {
     address: string;
 }
 
-function mapStateToProps (state: { list: { contacts : AddState[]}}) {
+function mapStateToProps (state: { list: { contacts: AddState[] }}) {
     return {
         id: state.list.contacts.length
     };
