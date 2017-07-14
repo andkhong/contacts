@@ -36,10 +36,10 @@ function Detail({ selected, deletePerson, id }: DetailProps) {
         <div className="container"> 
             <div className="detail">
                 <div className="personalName"> {firstName || ''} {lastName || ''} </div> 
-                <div className="personalDetail"> mobile {mobile || ''} <hr /> </div>
-                <div className="personalDetail"> email {email || ''}  <hr /> </div>
-                <div className="personalDetail"> birthday {bDay || ''}  <hr /> </div>
-                <div className="personalDetail"> address {address || ''} </div>
+                <div className="personalDetail"> mobile: {mobile || ''} <hr /> </div>
+                <div className="personalDetail"> email: {email || ''}  <hr /> </div>
+                <div className="personalDetail"> birthday: {bDay || ''}  <hr /> </div>
+                <div className="personalDetail"> address: {address || ''} </div>
             </div>
             <div className="footer">
                 <div className="addBtn"> <Link to="/add"> <button> + </button> </Link> </div>

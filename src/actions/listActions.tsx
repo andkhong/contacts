@@ -50,7 +50,7 @@ export function updateContact(update: Contact, id: number): UpdateContact {
     };
 }
 
-export function addContact(contact: {}) {
+export function addContact(contact: Contact): AddContact {
     return {
         type: ADD_CONTACT,
         contact

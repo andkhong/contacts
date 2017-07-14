@@ -2,6 +2,11 @@ import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as listDispatch from '../../actions/listActions';
+// import { Contact } from './../../data/';
+
+// interface AddProps {
+//     addPerson: (list: Contact) => Object;
+// }
 
 interface AddState {
     firstName: string;
@@ -43,11 +48,8 @@ class Add extends React.Component<any, AddState> {
 
     checkState() {
         const { addPerson } = this.props;
-        for (let key in this.state) {
-            if (this.state[key] !== '') {
-                addPerson(this.state);
-                break;
-            }
+        if (this.state.firstName || this.state.lastName) {
+            addPerson(this.state);
         }
     }
 
