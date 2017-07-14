@@ -3,7 +3,6 @@ import { connect, Dispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as listDispatch from '../../actions/listActions';
 import { SelectedProps } from './../../interfaces/';
-import { Contact } from '../../data/';
 
 interface ListProps {
   contacts: SelectedProps[];
@@ -39,7 +38,7 @@ class List extends React.Component<any, ListState> {
         .filter((item: SelectedProps, index: number) => ((item.firstName + item.lastName)
         .toLowerCase().includes(search.toLowerCase())))
         .sort((a: SelectedProps, b: SelectedProps) => a.firstName.localeCompare(b.firstName))
-        .map((contact: Contact) => (
+        .map((contact: SelectedProps) => (
           <li onClick={() => selectPerson(contacts.indexOf(contact))}> 
             <Link style={linkStyle} to="/detail">{contact.firstName} {contact.lastName}</Link>
           </li>

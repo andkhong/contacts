@@ -1,15 +1,15 @@
 export interface Contact {
-  firstName:string,
-  lastName:string,
-  mobile:string,
-  email:string,
-  bDay:string,
-  address:string
+  firstName: string;
+  lastName: string;
+  mobile: string;
+  email: string;
+  bDay: string;
+  address: string;
 }
 
-export const contacts:Contact[] = [
+export const contacts: Contact[] = [
   {
-      firstName: 'John', 
+      firstName: 'John',
       lastName: 'Doe', 
       mobile: '333 4567111',
       email: 'john@gmail.com',

@@ -1,5 +1,4 @@
 export interface SelectedProps {
-    id: number;
     firstName: string;
     lastName: string;
     email: string;
