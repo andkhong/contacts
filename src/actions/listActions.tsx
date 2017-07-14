@@ -20,6 +20,7 @@ export interface SelectContact {
 export interface UpdateContact {
     type: UPDATE_CONTACT;
     contact: SelectedProps;
+    id: number;
 }
 
 export interface AddContact {
@@ -41,10 +42,11 @@ export function selectContact(index: number): SelectContact {
     };
 }
 
-export function updateContact(update: SelectedProps): UpdateContact {
+export function updateContact(update: SelectedProps, id: number): UpdateContact {
     return {
         type: UPDATE_CONTACT,
-        contact: update
+        contact: update,
+        id
     };
 }
 

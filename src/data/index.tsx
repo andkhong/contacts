@@ -1,6 +1,14 @@
-export const contacts = [
+export interface Contact {
+  firstName:string,
+  lastName:string,
+  mobile:string,
+  email:string,
+  bDay:string,
+  address:string
+}
+
+export const contacts:Contact[] = [
   {
-      id: 0,
       firstName: 'John', 
       lastName: 'Doe', 
       mobile: '333 4567111',
@@ -9,7 +17,6 @@ export const contacts = [
       address: ''
     },
   {
-      id: 1,
       firstName: 'Alice', 
       lastName: 'Smith', 
       mobile: '333 45667933',
@@ -18,7 +25,6 @@ export const contacts = [
       address: ''
     },
   {
-      id: 2,
       firstName: 'Mark', 
       lastName: 'Joseph', 
       mobile: '333 33446776',
@@ -27,7 +33,6 @@ export const contacts = [
       address: ''
     },
   {
-      id: 3,
       firstName: 'Marion', 
       lastName: 'Justin', 
       mobile: '333 4343433345',

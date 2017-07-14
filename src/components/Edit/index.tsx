@@ -5,18 +5,22 @@ import * as listDispatch from '../../actions/listActions';
 import { SelectedProps } from './../../interfaces/';
 
 interface EditState {
-    list: { selected: SelectedProps; };
+    list: { 
+        selected: SelectedProps,
+        id: number
+     };
 }
 
 function mapStateToProps (state: EditState) {
     return {
-        selected: state.list.selected
+        selected: state.list.selected,
+        id: state.list.id
     };
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<listDispatch.UpdateContact>) => {
     return {
-        updateContact: (list: SelectedProps) => dispatch(listDispatch.updateContact(list)),
+        updateContact: (list: SelectedProps, id: number) => dispatch(listDispatch.updateContact(list, id)),
         deletePerson: (index: number) => dispatch(listDispatch.deleteContact(index))
     };
 };
@@ -26,19 +30,19 @@ class Edit extends React.Component<any, any> {
         super(props);
         this.state = props.selected;
         this.handleChange = this.handleChange.bind(this);
-        this.editContact = this.editContact.bind(this);
     }
 
     handleChange(e: { target: { name: string, value: string }}): void {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    editContact(): void {
-        this.props.updateContact(this.state);
+    editContact(id: number): void {
+        this.props.updateContact(this.state, id);
     }
 
     render() {
-        const { id, firstName, lastName, mobile, email, bDay, address } = this.state;
+        const { firstName, lastName, mobile, email, bDay, address } = this.state;
+        const { id } = this.props;
         return (
             <div className="container">
                 <div className="edit">
@@ -56,7 +60,7 @@ class Edit extends React.Component<any, any> {
                 <div className="footer">
                     <div className="addBtn"> <Link to="/add"> <button> + </button> </Link> </div>
                     <div className="edtBtn"> 
-                        <Link to="/detail"> <button onClick={this.editContact}> Done </button> </Link>
+                        <Link to="/detail"> <button onClick={() => this.editContact(id)}> Done </button> </Link>
                     </div>
                     <div className="dltBtn"> 
                         <Link to="/"> <button onClick={() => this.props.deletePerson(id)}> Delete </button> </Link>

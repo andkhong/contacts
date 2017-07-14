@@ -5,18 +5,23 @@ import * as listDispatch from '../../actions/listActions';
 import { SelectedProps } from './../../interfaces/';
 
 interface DetailProps {
+    id: number;
     selected: SelectedProps;
     deletePerson: (id: number) => void;
 }
 
 interface DetailState {
-    list: { selected: SelectedProps; };
+    list: { 
+        id: number ,
+        selected: SelectedProps
+    };
 }
 
 function mapStateToProps (state: DetailState) {
-  return {
-    selected: state.list.selected
-  };
+    return {
+        selected: state.list.selected,
+        id: state.list.id
+    };
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<listDispatch.DeleteContact>) => {
@@ -25,8 +30,8 @@ const mapDispatchToProps = (dispatch: Dispatch<listDispatch.DeleteContact>) => {
     };
 };
 
-function Detail({ selected, deletePerson }: DetailProps) {
-    const { id, firstName, lastName, email, bDay, mobile, address } = selected;
+function Detail({ selected, deletePerson, id }: DetailProps) {
+    const { firstName, lastName, email, bDay, mobile, address } = selected;
     return (
         <div className="container"> 
             <div className="detail">
@@ -40,7 +45,7 @@ function Detail({ selected, deletePerson }: DetailProps) {
                 <div className="addBtn"> <Link to="/add"> <button> + </button> </Link> </div>
                 <div className="edtBtn"> <Link to="/edit"> <button> Edit </button> </Link> </div>
                 <div className="dltBtn"> 
-                    <Link to="/"> <button onClick={() => deletePerson(id)}> Delete </button> </Link> 
+                    <Link to="/"> <button onClick={() => deletePerson(id)}> Delete </button> </Link>  
                 </div>
             </div>
         </div>

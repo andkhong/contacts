@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import * as listDispatch from '../../actions/listActions';
 
 interface AddState {
-    id: number;
     firstName: string;
     lastName: string;
     mobile: string;
@@ -13,10 +12,8 @@ interface AddState {
     address: string;
 }
 
-function mapStateToProps (state: { list: { contacts: AddState[] }}) {
-    return {
-        id: state.list.contacts.length
-    };
+function mapStateToProps () {
+    return {};
 }
 
 function mapDispatchToProps(dispatch: Dispatch<listDispatch.AddContact>) {
@@ -29,7 +26,6 @@ class Add extends React.Component<any, AddState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            id: this.props.id,
             firstName: '',
             lastName: '',
             mobile: '',

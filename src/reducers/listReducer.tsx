@@ -1,40 +1,42 @@
 import { contacts } from './../data/';
 import { ListAction, SELECT_CONTACT, UPDATE_CONTACT, ADD_CONTACT, DELETE_CONTACT } from '../actions/listActions';
-import { AppState, SelectedProps } from './../interfaces/';
+import { AppState } from './../interfaces/';
 
 export function listReducer(state: AppState, action: ListAction): AppState {
     switch (action.type) {
         case SELECT_CONTACT:
             return Object.assign({}, state, {
+                id: action.id,
                 selected: {
-                    ...state.contacts[action.id], 
-                    id: action.id 
+                    ...state.contacts[action.id]
                 }
             });
         case UPDATE_CONTACT: 
             return Object.assign({}, state, {
                 selected: action.contact,
                 contacts: [
-                    ...state.contacts.slice(0, action.contact.id), 
+                    ...state.contacts.slice(0, action.id), 
                     action.contact,
-                    ...state.contacts.slice(action.contact.id + 1)
+                    ...state.contacts.slice(action.id + 1)
                 ]
             });
         case ADD_CONTACT:
             return Object.assign({}, state, {
                 selected: null,
+                id: null, 
                 contacts: [
                     ...state.contacts, 
                     action.contact
                 ]
             });
         case DELETE_CONTACT:
-            let delCopy = [...state.contacts]
-                .filter((item, index) => index !== action.id)
-                .map((item: SelectedProps, index) => Object.assign({}, item, { id: index }));
             return Object.assign({}, state, {
-                contacts: delCopy,
-                selected: null
+                selected: null,
+                id: null,
+                contacts: [
+                    ...state.contacts.slice(0, action.id),
+                    ...state.contacts.slice(action.id + 1)
+                ]
             });
         default:
             return { contacts: contacts, selected: null };
