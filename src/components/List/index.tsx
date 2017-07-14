@@ -2,10 +2,10 @@ import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as listDispatch from '../../actions/listActions';
-import { SelectedProps } from './../../interfaces/';
+import { Contact } from './../../data/';
 
 interface ListProps {
-  contacts: SelectedProps[];
+  contacts: Contact [];
   selectPerson: (index: number) => void;
 }
 
@@ -35,10 +35,10 @@ class List extends React.Component<any, ListState> {
     const { contacts, selectPerson } = this.props;
     const { search } = this.state;
     return contacts
-        .filter((item: SelectedProps, index: number) => ((item.firstName + item.lastName)
+        .filter((item: Contact, index: number) => ((item.firstName + item.lastName)
         .toLowerCase().includes(search.toLowerCase())))
-        .sort((a: SelectedProps, b: SelectedProps) => a.firstName.localeCompare(b.firstName))
-        .map((contact: SelectedProps) => (
+        .sort((a: Contact, b: Contact) => a.firstName.localeCompare(b.firstName))
+        .map((contact: Contact) => (
           <li onClick={() => selectPerson(contacts.indexOf(contact))}> 
             <Link style={linkStyle} to="/detail">{contact.firstName} {contact.lastName}</Link>
           </li>

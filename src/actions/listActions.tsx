@@ -1,4 +1,4 @@
-import { SelectedProps } from './../interfaces/';
+import { Contact } from './../data/';
 
 export const SELECT_CONTACT = 'SELECT_CONTACT';
 export type SELECT_CONTACT = typeof SELECT_CONTACT;
@@ -19,13 +19,13 @@ export interface SelectContact {
 
 export interface UpdateContact {
     type: UPDATE_CONTACT;
-    contact: SelectedProps;
+    contact: Contact;
     id: number;
 }
 
 export interface AddContact {
     type: ADD_CONTACT;
-    contact: SelectedProps;
+    contact: Contact;
 }
 
 export interface DeleteContact {
@@ -42,7 +42,7 @@ export function selectContact(index: number): SelectContact {
     };
 }
 
-export function updateContact(update: SelectedProps, id: number): UpdateContact {
+export function updateContact(update: Contact, id: number): UpdateContact {
     return {
         type: UPDATE_CONTACT,
         contact: update,

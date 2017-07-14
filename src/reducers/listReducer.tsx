@@ -1,6 +1,11 @@
-import { contacts } from './../data/';
+import { contacts, Contact } from './../data/';
 import { ListAction, SELECT_CONTACT, UPDATE_CONTACT, ADD_CONTACT, DELETE_CONTACT } from '../actions/listActions';
-import { AppState } from './../interfaces/';
+
+interface AppState {
+    contacts: Contact[];
+    selected: null;
+    id: null;
+}
 
 export function listReducer(state: AppState, action: ListAction): AppState {
     switch (action.type) {
@@ -39,6 +44,6 @@ export function listReducer(state: AppState, action: ListAction): AppState {
                 ]
             });
         default:
-            return { contacts: contacts, selected: null };
+            return { contacts: contacts, selected: null, id: null };
     }
 }

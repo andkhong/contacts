@@ -2,13 +2,20 @@ import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as listDispatch from '../../actions/listActions';
-import { SelectedProps } from './../../interfaces/';
+import { Contact } from './../../data/';
 
 interface EditState {
     list: { 
-        selected: SelectedProps,
+        selected: Contact,
         id: number
      };
+}
+
+interface Change {
+    target: {
+        name: string,
+        value: string
+    };
 }
 
 function mapStateToProps (state: EditState) {
@@ -20,7 +27,7 @@ function mapStateToProps (state: EditState) {
 
 const mapDispatchToProps = (dispatch: Dispatch<listDispatch.UpdateContact>) => {
     return {
-        updateContact: (list: SelectedProps, id: number) => dispatch(listDispatch.updateContact(list, id)),
+        updateContact: (list: Contact, id: number) => dispatch(listDispatch.updateContact(list, id)),
         deletePerson: (index: number) => dispatch(listDispatch.deleteContact(index))
     };
 };
@@ -32,7 +39,7 @@ class Edit extends React.Component<any, any> {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(e: { target: { name: string, value: string }}): void {
+    handleChange(e: Change): void {
         this.setState({ [e.target.name]: e.target.value });
     }
 

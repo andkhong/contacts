@@ -2,18 +2,18 @@ import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as listDispatch from '../../actions/listActions';
-import { SelectedProps } from './../../interfaces/';
+import { Contact } from './../../data/';
 
 interface DetailProps {
     id: number;
-    selected: SelectedProps;
+    selected: Contact;
     deletePerson: (id: number) => void;
 }
 
 interface DetailState {
     list: { 
         id: number ,
-        selected: SelectedProps
+        selected: Contact
     };
 }
 
